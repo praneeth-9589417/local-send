@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10271f">
+    <title>Local Send — LAN file sharing</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="masthead">
+        <a class="brand" href="#" aria-label="Local Send home">
+          <span class="brand-mark">↗</span>
+          <span>Local Send</span>
+        </a>
+        <span class="lan-badge"><i></i> LAN only</span>
+      </header>
+      <div id="transfer-status" class="transfer-status" aria-live="polite" hidden></div>
+
+      <section id="home-view" class="hero">
+        <p class="eyebrow">FILE SHARING, MINUS THE INTERNET</p>
+        <h1>Send files across<br>the room.</h1>
+        <p class="lede">Create a room on this laptop, then share its code with anyone on the same Wi‑Fi.</p>
+
+        <div class="action-grid">
+          <article class="action-card accent-card">
+            <div class="card-icon">+</div>
+            <h2>Start a room</h2>
+            <p>Upload files from this device and invite others to download them.</p>
+            <label class="mode-label" for="new-room-mode">Who can upload?
+              <select id="new-room-mode">
+                <option value="owner_only" selected>Only me (creator)</option>
+                <option value="collaborative">Everyone in the room</option>
+              </select>
+            </label>
+            <button id="create-room-button" class="primary-button" type="button">Create room <span>→</span></button>
+          </article>
+          <article class="action-card">
+            <div class="card-icon">→</div>
+            <h2>Join a room</h2>
+            <p>Enter the eight-character code shared by the room creator.</p>
+            <form id="join-form" class="join-form">
+              <label class="sr-only" for="room-code-input">Room code</label>
+              <input id="room-code-input" maxlength="8" autocomplete="off" autocapitalize="characters" placeholder="ABCD 1234">
+              <button class="secondary-button" type="submit">Join</button>
+            </form>
+          </article>
+        </div>
+
+        <div id="address-note" class="address-note" hidden></div>
+      </section>
+
+      <section id="room-view" class="room-view" hidden>
+        <button id="back-button" class="back-button">← All rooms</button>
+        <div class="room-heading">
+          <div>
+            <p class="eyebrow">SHARED LOCALLY</p>
+            <h1>Room <span id="active-room-code"></span></h1>
+          </div>
+          <button id="copy-link-button" class="copy-button">Copy invite link</button>
+        </div>
+
+        <div id="owner-panel" class="upload-panel" hidden>
+          <div>
+            <h2>Add files</h2>
+            <p>Anyone who joins this room can add files.</p>
+          </div>
+          <label class="file-picker" for="file-input">Choose files<input id="file-input" type="file" multiple></label>
+          <button id="upload-button" class="primary-button" disabled>Upload selected</button>
+        </div>
+        <section id="owner-controls" class="owner-controls" hidden>
+          <div>
+            <h2>Room controls</h2>
+            <p>Only the room creator can change these settings or delete the room.</p>
+          </div>
+          <label class="mode-label" for="room-mode-select">Who can upload?
+            <select id="room-mode-select">
+              <option value="collaborative">Everyone in the room</option>
+              <option value="owner_only">Only me (creator)</option>
+            </select>
+          </label>
+          <button id="save-room-mode-button" class="secondary-button" type="button">Save setting</button>
+          <button id="delete-room-button" class="delete-button" type="button">Delete room</button>
+        </section>
+        <p id="guest-note" class="guest-note" hidden>This room is set to owner-only uploads. You can still download shared files.</p>
+        <section class="files-panel">
+          <div class="files-title"><h2>Available files</h2><button id="refresh-button" class="text-button">Refresh</button></div>
+          <div id="files-list" class="files-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="file-template">
+      <article class="file-row">
+        <div class="file-symbol">↓</div>
+        <div class="file-info"><strong class="file-name"></strong><span class="file-meta"></span></div>
+        <div class="file-action"></div>
+      </article>
+    </template>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
