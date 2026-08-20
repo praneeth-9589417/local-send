@@ -1,0 +1,22 @@
+# Python bytecode and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local Send runtime data (uploaded files and SQLite metadata)
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Local configuration and editor files
+.env
+.env.*
+.vscode/
+.idea/
+
+# Operating-system files and logs
+.DS_Store
+Thumbs.db
+*.log

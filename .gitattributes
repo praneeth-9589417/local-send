@@ -1,0 +1,2 @@
+# Keep source, docs, and web assets consistent across Windows and Unix hosts.
+* text=auto eol=lf
