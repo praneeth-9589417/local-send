@@ -4,6 +4,7 @@ Local Send is a small, LAN-only file sharing app. One Windows laptop runs the se
 
 It has no cloud account, external API, or internet requirement while running.
 
+
 ## Start on the host laptop
 
 1. Install Python 3.11+ if it is not already installed.
@@ -42,3 +43,8 @@ If Windows Defender Firewall prompts you, allow Python on **Private networks**. 
 - If a guest cannot reach the server, check that they used the host's LAN IP (not `localhost`), both devices are on the same network, guest/AP isolation is disabled, and the Windows Firewall rule is allowed on Private networks.
 - The default per-file limit is 2048 MB. Before starting, change it with `set LOCAL_SEND_MAX_UPLOAD_MB=4096` in Command Prompt, or `$env:LOCAL_SEND_MAX_UPLOAD_MB=4096` in the current PowerShell session.
 - Data and uploaded files are stored locally in `data/`. Anyone with the room code can download, and collaborative rooms also allow uploads, so use it only on trusted LANs and do not treat a room code as strong security.
+
+Images:
+<img width="1886" height="893" alt="image" src="https://github.com/user-attachments/assets/ac9e464e-e4e3-499f-a213-4eb9054f9e3a" />
+<img width="702" height="1600" alt="image" src="https://github.com/user-attachments/assets/98afa1f0-4a6f-4d60-9f25-672b03864f20" />
+
